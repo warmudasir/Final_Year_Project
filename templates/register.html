@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>HealthConnect - Registration</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='assets/images/photo-1576091160399-112ba8d25d1d.jpeg') }}" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+</head>
+<body>
+    <section class="vh-100 bg-image"
+    section class="vh-100 bg-image" style="background-image: url('https://wallpaperaccess.com/full/2134113.jpg'); background-size: cover; width: 100%; height: 90%;">
+    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+      <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+            <div class="card" style="border-radius: 15px;">
+              <div class="card-body p-5">
+                <h2 class="text-uppercase text-center mb-5">Create an account</h2>
+  
+                <form method="post" action="/register">
+  
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="form3Example1cg">Your Name</label>
+                    <input type="text" class="form-control form-control-lg" name="name" id="name" required/>
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="form3Example3cg">Phone Number</label>
+                    <input type="tel" class="form-control form-control-lg" name="phone" id="phone" required />
+                  </div>
+  
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="form3Example3cg">Your Email</label>
+                    <input type="email" class="form-control form-control-lg" name="email" id="email" required/>
+                  </div>
+  
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="form3Example4cg">Username</label>
+                    <input type="password" class="form-control form-control-lg" name="username" id="username" required />
+                  </div>
+  
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="form3Example4cdg">Password</label>
+                    <div class="input-group">
+                        <input type="password" class="form-control form-control-lg" name="password" id="password" required />
+                        <button type="button" class="btn btn-outline-secondary" id="togglePassword">
+                            <i class="far fa-eye"></i> <!-- Font Awesome eye icon -->
+                        </button>
+                    </div>
+                </div>
+                  <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary btn-block">Register</button>
+                  </div>
+  
+                  <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="{{ url_for('login') }}"
+                      class="fw-bold text-body"><u>Login here</u></a></p>
+                      <br>
+                      <p class="text-center text-muted mt-5 mb-0">Want to go back? <a href="{{ url_for('home') }}"
+                      class="fw-bold text-body"><u>Go back</u></a></p>
+  
+                </form>
+  
+              </div>
+            </div>
+          </div>
+          {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+              {% for message, category in messages %}
+                  <div class="alert alert-{{ category }}" role="alert">
+                      {{ message }}
+                  </div>
+              {% endfor %}
+          {% endif %}
+          {% endwith %}
+        </div>
+      </div>
+    </div>
+  </section>
+         
+  
+  <script>
+    document.getElementById('togglePassword').addEventListener('click', function () {
+        var passwordInput = document.getElementById('password');
+        var button = document.getElementById('togglePassword');
+  
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            button.innerHTML = '<i class="far fa-eye-slash"></i>'; // Font Awesome eye-slash icon
+        } else {
+            passwordInput.type = 'password';
+            button.innerHTML = '<i class="far fa-eye"></i>'; // Font Awesome eye icon
+        }
+    });
+  </script>
+
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>

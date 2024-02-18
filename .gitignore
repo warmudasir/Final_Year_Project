@@ -1,0 +1,16 @@
+__pycache__/
+.venv/
+venv/
+*.pyc
+*.pyo
+*.pyd
+*.pyc
+*.pyo
+*.pyz
+*.pyw
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+Health_Connect.egg-info/

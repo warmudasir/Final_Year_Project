@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Connect - Booking</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='assets/images/photo-1576091160399-112ba8d25d1d.jpeg') }}" type="image/x-icon">
+</head>
+<body>
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="medical"></ion-icon>
+                        </span>
+                        <span class="title">
+                            <img src="{{ url_for('static', filename='logo.png') }}" alt="Hospital Logo" style="width: 220px; height: 45px; margin-top: 5px; margin-right: 5px;">
+                        </span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ url_for('dashboard') }}">
+                        <span class="icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ url_for('booking') }}">
+                        <span class="icon">
+                            <ion-icon name="people-outline"></ion-icon>
+                        </span>
+                        <span class="title">Service</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="medkit-outline"></ion-icon>
+                        </span>
+                        <span class="title">Medical Records</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="chatbubble-outline"></ion-icon>
+                        </span>
+                        <span class="title">Messages</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="settings-outline"></ion-icon>
+                        </span>
+                        <span class="title">Settings</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ url_for('logout') }}">
+                        <span class="icon">
+                            <ion-icon name="log-out-outline"></ion-icon>
+                        </span>
+                        <span class="title">Sign Out</span>
+                    </a>
+                </li>
+                <br>
+                <p style="font-size:14px; text-align: center;"><b>APP Version - 1.0.0</b></p>
+                <br>
+                <li>
+                    <a href="{{ url_for('booking') }}">
+                        <span class="icon">
+                            <ion-icon name="log-out-outline"></ion-icon>
+                        </span>
+                        <span class="title">Go back</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </div>
+
+                <div class="search">
+                    <label>
+                        <input type="text" placeholder="Search here">
+                        <ion-icon name="search-outline"></ion-icon>
+                    </label>
+                </div>
+
+                <div class="user">
+                    <img src="../static/assets/images/saabu.jpg" alt="">
+                </div>
+            </div>
+
+            <div class="centered-container">
+                <div class="appointment-details-container">
+                    <h1 style="text-align: center;"><b>Your Appointment Details:</b></h2>
+                    <br>
+                    <p style="text-align: left; font-size: 25px;"><b><strong>Appointment Token: {{token}}</strong></b></p>
+                    <p style="text-align: left; font-size: 25px;"><b><strong>Patient's Name: {{ form_data['name'] }}</strong></b></p>
+                    <p style="text-align: left; font-size: 25px;"><b><strong>Patient's Date of Birth: {{ form_data['dob'] }} </strong></p>
+                    <p style="text-align: left; font-size: 25px;"><b><strong>Patient's Phone Number: {{ form_data['phone'] }} </strong></p>
+                    <p style="text-align: left; font-size: 25px;"><b><strong>Patient's Email-Id: {{ form_data['email'] }} </strong></p>
+                    <p style="text-align: left; font-size: 25px;"><b><strong>Recommended Specialist: {{ recommended_doctor }}</strong></b></p>
+                    <p style="text-align: left; font-size: 25px;"><b><strong>Reason for booking this appointment: {{ form_data['patient_condition'] }} </strong></p>
+                    <p style="text-align: left; font-size: 25px;"><b><strong>Medical History: {{ form_data['medical-history'] }} </strong></p>    
+                </div>
+                <p style="text-align: left; font-size: 25px;"><b><strong> </strong></p>
+                    
+            </div>
+
+
+    <script src="{{ url_for('static', filename='admin.js') }}"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
